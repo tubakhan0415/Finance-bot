@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cursive', Serif;
+    font-weight: 400;
+    font-size: 100%;
+    background: #F1F1F1;
+}
+
+*, html {
+    --primaryGradient: linear-gradient(93.12deg, #000000 0.52%, #000000 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #000000 -2.14%, #000000 99.69%);
+    --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    --primary: #e0e0e0;
+}
+
+.chatbox {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.chatbox__support {
+    display: flex;
+    flex-direction: column;
+    background: #0c0b0b;
+    width: 300px;
+    height: 350px;
+    z-index: 100;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.chatbox--active {
+    transform: translateY(-40px);
+    z-index: 100;
+    opacity: 1;
+}
+
+.chatbox__button {
+    text-align: right;
+}
+
+.send__button {
+    padding: 6px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;  /* or flex, inline, etc., depending on your layout needs */
+}
+
+.chatbox__header {
+    position: sticky;
+    top: 0;
+    background: orange;
+}
+
+.chatbox__description--header {
+    font-family: 'Serif', sans-serif;
+    font-style:'normal';
+}
+
+.chatbox__messages {
+    margin-top: auto;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+    color: #000000;
+    max-height: 600px; /* Adjust based on your design */
+    overflow-y: auto;
+}
+
+.messages__item {
+    background: orange;
+    max-width: 60.6%;
+    width: fit-content;
+}
+
+.messages__item--operator {
+    margin-right: auto;
+    text-align: left;
+}
+
+.messages__item--visitor {
+    margin-right: auto;
+    text-align: right;
+}
+
+.chatbox__footer {
+    position: sticky;
+    bottom: 0;
+}
+.chatbox__support {
+    background: #f9f9f9;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px #989899;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.chatbox__header {
+    background: var(--primaryGradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__heading--header {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.chatbox__description--header {
+    font-size: .9rem;
+    color: white;
+}
+
+.chatbox__messages {
+    padding: 0 20px;
+    
+}
+
+.messages__item {
+    margin-top: 10px;
+    background: #E0E0E0;
+    padding: 8px 12px;
+    max-width: 70%;
+}
+
+.messages__item--left {
+    margin-left: auto;
+}
+
+.messages__item--right {
+    margin-right: auto;
+}
+
+.messages__item--visitor,
+.messages__item--typing {
+    border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    align-self: left;
+}
+
+.messages__item--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: #000000;
+    align-self: right;
+}
+
+.chatbox__footer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--secondaryGradient);
+    box-shadow: var(--secondaryBoxShadow);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.chatbox__footer input[type="text"] {
+    flex-grow: 1; /* Allows the input field to grow and fill the space */
+    padding: 10px; /* Comfortable padding for typing */
+    margin: 0 10px 0 0; /* Right margin to separate from the send button */
+    border: 1px solid #ccc; /* Subtle border styling */
+    border-radius: 20px; /* Rounded corners for modern look */
+    font-size: 14px; /* Adequate font size for readability */
+    outline: none; /* Removes the outline to keep the design clean */
+}
+
+.chatbox__send--footer {
+    color: white;
+}
+
+.chatbox__button button,
+.chatbox__button button:focus,
+.chatbox__button button:visited {
+    padding: 10px;
+    background: rgb(248, 242, 242);
+    border: none;
+    outline: none;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mode__button {
+    padding: 10px;
+    margin: 5px 0px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 8px serif;
+    background-color: rgb(223, 9, 9);
+    transition: background-color 0.3s ease;
+    color: #000000 ;
+}
+
+.mode__button {
+    background-color: #000000;
+    font: 10px bold;
+    padding: 8px;
+    margin: 5px 0px;
+}
+
+.button-6 {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.chatbox__messages button {
+    background-color: #989899;
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.input-container {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Center align the input and button vertically */
+    background: white; /* Match the input background */
+    border-radius: 22px; /* Rounded corners for the container */
+    overflow: hidden; /* Ensures the button does not overflow the container boundaries */
+}
+
+.chatbox__input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 22px; /* Ensures the input field also has rounded edges */
+    padding-right: 60px; /* Space for the button */
+    padding-left: 10px; /* Space for text */
+    height: 40px; /* Ensures enough height for easy interaction */
+    border: none; /* Removes border as the container has it */
+    outline: none; /* Removes focus outline */
+    font-size: 14px;
+}
+.chatbox__messages button:hover,
+.chatbox__messages button:focus {
+    background-color: #a8a8a8;
+    transform: scale(1.05);
+    outline: none;
+}
+
+#goBackButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .back-button {
+    background-color: #007bff; /* Blue background for visibility */
+    color: white; /* White text for contrast */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Ensure it is always treated as an inline-block */
+    margin-top: 10px;
+}
+
+  
+  #previousStepButton {
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+.chatbox__footer {
+    position: relative; /* Ensure that child elements can be absolutely positioned relative to this container */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /* This spreads out the footer content */
+}
+
+.send__button {
+    padding: 10px 20px; 
+    background-color: red; /* Red background for the button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding to create an oval shape */
+    border-radius: 20px; /* Large border-radius to make the button oval */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* No focus outline */
+    font-weight: bold; /* Make the text bold */
+    position: absolute; /* Positioning it absolutely to place it specifically */
+    right: 40px; /* Right align within the footer */
+    bottom: 11px; /* Maintain consistent spacing from the bottom */
+     flex-shrink: 0;
+}
+
+.send__button:hover {
+    background-color: darkred; /* Darker red on hover for better interaction feedback */
+}
+
+  
+
